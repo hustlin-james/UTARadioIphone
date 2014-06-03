@@ -19,6 +19,17 @@
 		C175FD4C193CE32B00CE7C66 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C175FD34193CE32B00CE7C66 /* UIKit.framework */; };
 		C175FD54193CE32B00CE7C66 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C175FD52193CE32B00CE7C66 /* InfoPlist.strings */; };
 		C175FD56193CE32B00CE7C66 /* UTARadioIphoneTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C175FD55193CE32B00CE7C66 /* UTARadioIphoneTests.m */; };
+		C175FD61193CF09000CE7C66 /* SwipeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C175FD60193CF09000CE7C66 /* SwipeTableViewController.m */; };
+		C175FD74193D038600CE7C66 /* SongRequestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C175FD72193D038600CE7C66 /* SongRequestViewController.m */; };
+		C175FD75193D038600CE7C66 /* SongRequestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C175FD73193D038600CE7C66 /* SongRequestViewController.xib */; };
+		C175FD7A193D059200CE7C66 /* StaffViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C175FD78193D059200CE7C66 /* StaffViewController.m */; };
+		C175FD7B193D059200CE7C66 /* StaffViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C175FD79193D059200CE7C66 /* StaffViewController.xib */; };
+		C1B04A6D193D2CB100B9A7F1 /* AudioPlayerSingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = C1B04A6C193D2CB100B9A7F1 /* AudioPlayerSingleton.m */; };
+		C1F00F88193D0AB200135240 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1F00F87193D0AB200135240 /* MediaPlayer.framework */; };
+		C1F00F8A193D0ABA00135240 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1F00F89193D0ABA00135240 /* AVFoundation.framework */; };
+		C1F00F8C193D0AC900135240 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1F00F8B193D0AC900135240 /* CoreMedia.framework */; };
+		C1F00F9B193D1C6500135240 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C1F00F99193D1C6500135240 /* HomeViewController.m */; };
+		C1F00F9C193D1C6500135240 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1F00F9A193D1C6500135240 /* HomeViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +59,22 @@
 		C175FD51193CE32B00CE7C66 /* UTARadioIphoneTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "UTARadioIphoneTests-Info.plist"; sourceTree = "<group>"; };
 		C175FD53193CE32B00CE7C66 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C175FD55193CE32B00CE7C66 /* UTARadioIphoneTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UTARadioIphoneTests.m; sourceTree = "<group>"; };
+		C175FD5F193CF09000CE7C66 /* SwipeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwipeTableViewController.h; sourceTree = "<group>"; };
+		C175FD60193CF09000CE7C66 /* SwipeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwipeTableViewController.m; sourceTree = "<group>"; };
+		C175FD71193D038600CE7C66 /* SongRequestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SongRequestViewController.h; sourceTree = "<group>"; };
+		C175FD72193D038600CE7C66 /* SongRequestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SongRequestViewController.m; sourceTree = "<group>"; };
+		C175FD73193D038600CE7C66 /* SongRequestViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SongRequestViewController.xib; sourceTree = "<group>"; };
+		C175FD77193D059200CE7C66 /* StaffViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StaffViewController.h; sourceTree = "<group>"; };
+		C175FD78193D059200CE7C66 /* StaffViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StaffViewController.m; sourceTree = "<group>"; };
+		C175FD79193D059200CE7C66 /* StaffViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StaffViewController.xib; sourceTree = "<group>"; };
+		C1B04A6B193D2CB100B9A7F1 /* AudioPlayerSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioPlayerSingleton.h; sourceTree = "<group>"; };
+		C1B04A6C193D2CB100B9A7F1 /* AudioPlayerSingleton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioPlayerSingleton.m; sourceTree = "<group>"; };
+		C1F00F87193D0AB200135240 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		C1F00F89193D0ABA00135240 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		C1F00F8B193D0AC900135240 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		C1F00F98193D1C6500135240 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		C1F00F99193D1C6500135240 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		C1F00F9A193D1C6500135240 /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +82,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C1F00F8C193D0AC900135240 /* CoreMedia.framework in Frameworks */,
+				C1F00F8A193D0ABA00135240 /* AVFoundation.framework in Frameworks */,
+				C1F00F88193D0AB200135240 /* MediaPlayer.framework in Frameworks */,
 				C175FD33193CE32B00CE7C66 /* CoreGraphics.framework in Frameworks */,
 				C175FD35193CE32B00CE7C66 /* UIKit.framework in Frameworks */,
 				C175FD31193CE32B00CE7C66 /* Foundation.framework in Frameworks */,
@@ -96,6 +126,9 @@
 		C175FD2F193CE32B00CE7C66 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C1F00F8B193D0AC900135240 /* CoreMedia.framework */,
+				C1F00F89193D0ABA00135240 /* AVFoundation.framework */,
+				C1F00F87193D0AB200135240 /* MediaPlayer.framework */,
 				C175FD30193CE32B00CE7C66 /* Foundation.framework */,
 				C175FD32193CE32B00CE7C66 /* CoreGraphics.framework */,
 				C175FD34193CE32B00CE7C66 /* UIKit.framework */,
@@ -107,6 +140,11 @@
 		C175FD36193CE32B00CE7C66 /* UTARadioIphone */ = {
 			isa = PBXGroup;
 			children = (
+				C1B04A6A193D2A2000B9A7F1 /* AudioPlayerSingleton */,
+				C175FD76193D057A00CE7C66 /* Staff */,
+				C175FD6D193D02D600CE7C66 /* RequestSong */,
+				C175FD63193CF99B00CE7C66 /* Home */,
+				C175FD62193CF98B00CE7C66 /* SwipeController */,
 				C175FD3F193CE32B00CE7C66 /* AppDelegate.h */,
 				C175FD40193CE32B00CE7C66 /* AppDelegate.m */,
 				C175FD42193CE32B00CE7C66 /* Images.xcassets */,
@@ -142,6 +180,54 @@
 				C175FD52193CE32B00CE7C66 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C175FD62193CF98B00CE7C66 /* SwipeController */ = {
+			isa = PBXGroup;
+			children = (
+				C175FD5F193CF09000CE7C66 /* SwipeTableViewController.h */,
+				C175FD60193CF09000CE7C66 /* SwipeTableViewController.m */,
+			);
+			name = SwipeController;
+			sourceTree = "<group>";
+		};
+		C175FD63193CF99B00CE7C66 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				C1F00F98193D1C6500135240 /* HomeViewController.h */,
+				C1F00F99193D1C6500135240 /* HomeViewController.m */,
+				C1F00F9A193D1C6500135240 /* HomeViewController.xib */,
+			);
+			name = Home;
+			sourceTree = "<group>";
+		};
+		C175FD6D193D02D600CE7C66 /* RequestSong */ = {
+			isa = PBXGroup;
+			children = (
+				C175FD71193D038600CE7C66 /* SongRequestViewController.h */,
+				C175FD72193D038600CE7C66 /* SongRequestViewController.m */,
+				C175FD73193D038600CE7C66 /* SongRequestViewController.xib */,
+			);
+			name = RequestSong;
+			sourceTree = "<group>";
+		};
+		C175FD76193D057A00CE7C66 /* Staff */ = {
+			isa = PBXGroup;
+			children = (
+				C175FD77193D059200CE7C66 /* StaffViewController.h */,
+				C175FD78193D059200CE7C66 /* StaffViewController.m */,
+				C175FD79193D059200CE7C66 /* StaffViewController.xib */,
+			);
+			name = Staff;
+			sourceTree = "<group>";
+		};
+		C1B04A6A193D2A2000B9A7F1 /* AudioPlayerSingleton */ = {
+			isa = PBXGroup;
+			children = (
+				C1B04A6B193D2CB100B9A7F1 /* AudioPlayerSingleton.h */,
+				C1B04A6C193D2CB100B9A7F1 /* AudioPlayerSingleton.m */,
+			);
+			name = AudioPlayerSingleton;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -191,6 +277,13 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = com.mobi;
 				TargetAttributes = {
+					C175FD2C193CE32B00CE7C66 = {
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
+					};
 					C175FD47193CE32B00CE7C66 = {
 						TestTargetID = C175FD2C193CE32B00CE7C66;
 					};
@@ -220,6 +313,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				C175FD3B193CE32B00CE7C66 /* InfoPlist.strings in Resources */,
+				C175FD7B193D059200CE7C66 /* StaffViewController.xib in Resources */,
+				C1F00F9C193D1C6500135240 /* HomeViewController.xib in Resources */,
+				C175FD75193D038600CE7C66 /* SongRequestViewController.xib in Resources */,
 				C175FD43193CE32B00CE7C66 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -239,8 +335,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C175FD61193CF09000CE7C66 /* SwipeTableViewController.m in Sources */,
+				C175FD7A193D059200CE7C66 /* StaffViewController.m in Sources */,
+				C1B04A6D193D2CB100B9A7F1 /* AudioPlayerSingleton.m in Sources */,
 				C175FD41193CE32B00CE7C66 /* AppDelegate.m in Sources */,
 				C175FD3D193CE32B00CE7C66 /* main.m in Sources */,
+				C175FD74193D038600CE7C66 /* SongRequestViewController.m in Sources */,
+				C1F00F9B193D1C6500135240 /* HomeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -437,6 +538,7 @@
 				C175FD5B193CE32B00CE7C66 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C175FD5C193CE32B00CE7C66 /* Build configuration list for PBXNativeTarget "UTARadioIphoneTests" */ = {
 			isa = XCConfigurationList;
@@ -445,6 +547,7 @@
 				C175FD5E193CE32B00CE7C66 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

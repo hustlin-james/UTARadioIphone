@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import "HomeViewController.h"
+#import "AudioPlayerSingleton.h"
 
 @implementation AppDelegate
 
@@ -14,6 +16,14 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
+    AudioPlayerSingleton *ap = [AudioPlayerSingleton singletonInstance];
+   
+    HomeViewController *home = [HomeViewController new];
+    
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:home];
+    
+    self.window.rootViewController = nav;
+    
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;
