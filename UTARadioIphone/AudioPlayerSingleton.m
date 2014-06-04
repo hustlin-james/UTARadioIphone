@@ -10,6 +10,11 @@
 #import <AVFoundation/AVFoundation.h>
 #import <MediaPlayer/MediaPlayer.h>
 
+typedef NS_ENUM(NSInteger, Orientation){
+    PORTRAIT,
+    LANDSCAPE
+};
+
 @interface AudioPlayerSingleton(){
     AVPlayer *player;
     
@@ -123,9 +128,36 @@
         
         [toolBar setItems: @[playButton,pauseButton,flexiSpace,volSliderAsToolbarItem]];
     }
-    //[self.view addSubview:toolBar];
     return toolBar;
 }
 
+- (CGFloat)toolBarHeight{
+    return toolBar.bounds.size.height;
+}
+-(void)switchBottomToolbarToPortrait{
+    [self switchToolbarOrientation:PORTRAIT];
+}
+
+- (void) switchBottomToolbarToLandscape{
+    [self switchToolbarOrientation:LANDSCAPE];
+}
+
+- (void)switchToolbarOrientation: (Orientation) o{
+    CGRect screenRect = [[UIScreen mainScreen] bounds];
+    CGFloat screenWidth = screenRect.size.width;
+    CGFloat screenHeight = screenRect.size.height;
+    
+    CGFloat height = screenHeight;
+    CGFloat width = screenWidth;
+    
+    CGRect frame = CGRectMake(0,height-44,width,44);
+    
+    if(o == LANDSCAPE){
+        height = screenWidth;
+        width = screenHeight;
+        frame = CGRectMake(0,height-35,width,35);
+    }
+    toolBar.frame = frame;
+}
 
 @end

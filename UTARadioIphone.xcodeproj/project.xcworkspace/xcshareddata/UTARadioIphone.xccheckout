@@ -5,34 +5,34 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>3FEA7190-7E80-4D6F-84BB-4F8EA546E808</string>
+	<string>B469C9EC-DC47-45A1-A1C5-3BF7285B8B53</string>
 	<key>IDESourceControlProjectName</key>
 	<string>UTARadioIphone</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>CBF7D145-BFDD-4C0B-9443-68DB5A73E176</key>
-		<string>https://github.com/UTA-Mobi/UTARadioIphone.git</string>
+		<key>75F59CDF-746C-4BBB-A234-2439EF85E86C</key>
+		<string>https://github.com/hustlin-james/UTARadioIphone.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>UTARadioIphone.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>CBF7D145-BFDD-4C0B-9443-68DB5A73E176</key>
+		<key>75F59CDF-746C-4BBB-A234-2439EF85E86C</key>
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/UTA-Mobi/UTARadioIphone.git</string>
+	<string>https://github.com/hustlin-james/UTARadioIphone.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>CBF7D145-BFDD-4C0B-9443-68DB5A73E176</string>
+	<string>75F59CDF-746C-4BBB-A234-2439EF85E86C</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>CBF7D145-BFDD-4C0B-9443-68DB5A73E176</string>
+			<string>75F59CDF-746C-4BBB-A234-2439EF85E86C</string>
 			<key>IDESourceControlWCCName</key>
 			<string>UTARadioIphone</string>
 		</dict>

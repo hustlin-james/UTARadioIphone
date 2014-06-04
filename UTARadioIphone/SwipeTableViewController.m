@@ -11,11 +11,21 @@
 #import "SongRequestViewController.h"
 #import "StaffViewController.h"
 #import "AudioPlayerSingleton.h"
+#import "SocialViewController.h"
 
 #define menuWidth 150.0
 
+typedef NS_ENUM(NSInteger, Orientation){
+    PORTRAIT,
+    LANDSCAPE
+};
+
 @interface SwipeTableViewController(){
     AudioPlayerSingleton *player;
+    
+    UISwipeGestureRecognizer *showMenuGesture;
+    UISwipeGestureRecognizer *hideMenuGesture;
+    
 }
 
 @property (nonatomic, strong) UIView *menuView;
@@ -35,29 +45,22 @@
 {
     [super viewDidLoad];
     
+    CGFloat navBarHeight = self.navigationController.navigationBar.bounds.size.height;
+    NSLog(@"navBarHeight: %f", navBarHeight);
+    
     if(!player)
         player = [AudioPlayerSingleton singletonInstance];
     
-    [self.view addSubview: [player  createBottomToolbar]];
+    [self.view addSubview: [player createBottomToolbar]];
     
 	//Create the side menu
-    
     [self setupMenuView];
     
     self.animator = [[UIDynamicAnimator alloc] initWithReferenceView:self.view];
     
-    
-    UISwipeGestureRecognizer *showMenuGesture = [[UISwipeGestureRecognizer alloc] initWithTarget:self
-                                                                                          action:@selector(handleGesture:)];
+    showMenuGesture = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleGesture:)];
     showMenuGesture.direction = UISwipeGestureRecognizerDirectionRight;
     [self.view addGestureRecognizer:showMenuGesture];
-    
-    
-    UISwipeGestureRecognizer *hideMenuGesture = [[UISwipeGestureRecognizer alloc] initWithTarget:self
-                                                                                          action:@selector(handleGesture:)];
-    hideMenuGesture.direction = UISwipeGestureRecognizerDirectionLeft;
-    [self.menuView addGestureRecognizer:hideMenuGesture];
-    
 }
 
 - (void)didReceiveMemoryWarning
@@ -69,44 +72,51 @@
 #pragma mark - Private method implementation
 
 -(void)setupMenuView{
-    
     UIInterfaceOrientation orientation = [[UIApplication sharedApplication] statusBarOrientation];
+    if(orientation == UIInterfaceOrientationLandscapeLeft
+       || orientation == UIInterfaceOrientationLandscapeRight){
+        
+        [self changeMenuViewOrientation:LANDSCAPE];
+    }else{
+         [self changeMenuViewOrientation: PORTRAIT];
+    }
+}
+
+- (void)changeMenuViewOrientation: (Orientation) o{
     
     CGRect screenRect = [[UIScreen mainScreen] bounds];
     CGFloat screenWidth = screenRect.size.width;
     CGFloat screenHeight = screenRect.size.height;
+    CGFloat navBarHeight = self.navigationController.navigationBar.bounds.size.height;
     
-    // Setup the background view.
+    //[self.menuView removeFromSuperview];
     
-    CGRect backgroundRect = screenRect;
-    self.backgroundView = [[UIView alloc] initWithFrame:backgroundRect];
+    CGRect frameRect = CGRectMake(0, 0, 0, 0);
     
-    self.backgroundView.backgroundColor = [UIColor lightGrayColor];
-    self.backgroundView.alpha = 0.0;
-    [self.view addSubview:self.backgroundView];
-    
-    CGFloat navBarHeight =
-        self.navigationController.navigationBar.bounds.size.height;
-    
-    CGFloat boundsHeight = screenHeight;
-    
-    /*
-    if(orientation == UIInterfaceOrientationLandscapeLeft){
+    if(o == LANDSCAPE){
+        CGRect backgroundLandscape = CGRectMake(0,0, screenHeight, screenWidth);
+        self.backgroundView.frame = backgroundLandscape;
         
-        NSLog(@"changing menu view for landscape");
-        boundsHeight = screenWidth - 50;
-    }else if(orientation == UIInterfaceOrientationLandscapeRight){
-        NSLog(@"right orientation");
+        CGRect landScapeRect = CGRectMake(-menuWidth,
+                                          navBarHeight+20,
+                                          menuWidth,
+                                          screenWidth-navBarHeight);
+        
+        frameRect = landScapeRect;
+    }else{
+        CGRect backgroundPortrait = CGRectMake(0,0, screenWidth, screenHeight);
+        self.backgroundView.frame = backgroundPortrait;
+        
+        CGRect portraitRect = CGRectMake(-menuWidth,
+                                         navBarHeight+20,
+                                         menuWidth,
+                                         screenHeight-navBarHeight);
+        frameRect = portraitRect;
     }
-     */
     
-    boundsHeight = screenWidth - 50;
-    
-    // Setup the menu view.
-    self.menuView = [[UIView alloc] initWithFrame:CGRectMake(-menuWidth,
-                                                             navBarHeight + 20,
-                                                             menuWidth,
-                                                             boundsHeight - navBarHeight)];
+    [self.menuView removeFromSuperview];
+        
+    self.menuView = [[UIView alloc] initWithFrame:frameRect];
     
     self.menuView.backgroundColor = [UIColor colorWithRed:0.2 green:0.2 blue:0.2 alpha:1.0];
     [self.view addSubview:self.menuView];
@@ -125,15 +135,23 @@
     [self.menuTable reloadData];
     
     [self.menuView addSubview:self.menuTable];
+    
+    if(hideMenuGesture){
+        [self.menuView addGestureRecognizer:hideMenuGesture];
+    }else{
+        hideMenuGesture = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleGesture:)];
+        hideMenuGesture.direction = UISwipeGestureRecognizerDirectionLeft;
+        [self.menuView addGestureRecognizer:hideMenuGesture];
+    }
 }
 
-       
 -(void)handleGesture:(UISwipeGestureRecognizer *)gesture{
     if (gesture.direction == UISwipeGestureRecognizerDirectionRight) {
-        
+        NSLog(@"Swipped right");
         [self toggleMenu:YES];
     }
     else{
+        NSLog(@"Swipped left");
         [self toggleMenu:NO];
     }
 }
@@ -142,7 +160,6 @@
     [self.animator removeAllBehaviors];
     
     UIInterfaceOrientation orientation = [[UIApplication sharedApplication] statusBarOrientation];
-
     
     CGFloat gravityDirectionX = (shouldOpenMenu) ? 1.0 : -1.0;
     CGFloat pushMagnitude = (shouldOpenMenu) ? 20.0 : -20.0;
@@ -154,7 +171,6 @@
     
     UICollisionBehavior *collisionBehavior = [[UICollisionBehavior alloc] initWithItems:@[self.menuView]];
     
-    
     CGRect screenRect = [[UIScreen mainScreen] bounds];
     CGFloat screenWidth = screenRect.size.width;
     CGFloat screenHeight = screenRect.size.height;
@@ -164,20 +180,18 @@
     if(orientation == UIInterfaceOrientationLandscapeLeft || orientation == UIInterfaceOrientationLandscapeRight){
         yBound = screenWidth;
     }
-    
+
     [collisionBehavior addBoundaryWithIdentifier:@"menuBoundary"
                                        fromPoint:CGPointMake(boundaryPointX, 20.0)
                                          toPoint:CGPointMake(boundaryPointX,yBound)];
-    
     [self.animator addBehavior:collisionBehavior];
-    
     UIPushBehavior *pushBehavior = [[UIPushBehavior alloc] initWithItems:@[self.menuView]
                                                                     mode:UIPushBehaviorModeInstantaneous];
     pushBehavior.magnitude = pushMagnitude;
     [self.animator addBehavior:pushBehavior];
     
     UIDynamicItemBehavior *menuViewBehavior = [[UIDynamicItemBehavior alloc] initWithItems:@[self.menuView]];
-    menuViewBehavior.elasticity = 0.4;
+    menuViewBehavior.elasticity = 0.0;
     [self.animator addBehavior:menuViewBehavior];
     
     self.backgroundView.alpha = (shouldOpenMenu) ? 0.5 : 0.0;
@@ -190,7 +204,7 @@
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 3;
+    return 4;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -211,6 +225,8 @@
         case 2:
             menuOptionText = @"Radio Staff";
             break;
+        case 3:
+            menuOptionText = @"Social";
         default:
             break;
     }
@@ -229,7 +245,6 @@
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    //[[tableView cellForRowAtIndexPath:indexPath] setSelected:NO];
     switch (indexPath.row) {
         case 0: {
             HomeViewController *home = [HomeViewController new];
@@ -244,8 +259,11 @@
             
         case 2: {
             StaffViewController *staff = [StaffViewController new];
-            //[self.navigationController pushViewController:staff animated:YES];
             [self.navigationController setViewControllers:@[staff]];
+        }
+        case 3: {
+            SocialViewController *social = [SocialViewController new];
+            [self.navigationController setViewControllers:social];
         }
         default:
             break;
@@ -254,17 +272,25 @@
 
 - (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration{
     
-    if (toInterfaceOrientation == UIInterfaceOrientationLandscapeLeft) {
-        NSLog(@"Landscape left");
-        [self setupMenuView];
-    } else if (toInterfaceOrientation == UIInterfaceOrientationLandscapeRight) {
-        NSLog(@"Landscape right");
-        [self setupMenuView];
-    } else if (toInterfaceOrientation == UIInterfaceOrientationPortrait) {
-        NSLog(@"Portrait");
-    } else if (toInterfaceOrientation == UIInterfaceOrientationPortraitUpsideDown) {
-        NSLog(@"Upside down");
+    if (toInterfaceOrientation == UIInterfaceOrientationLandscapeLeft ||
+        toInterfaceOrientation == UIInterfaceOrientationLandscapeRight) {
+        [self toggleMenu:NO];
+        [player switchBottomToolbarToLandscape];
+    }else{
+        [self toggleMenu:NO];
+        [player switchBottomToolbarToPortrait];
     }
+}
+
+- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation{
+    UIInterfaceOrientation orientation = [[UIApplication sharedApplication] statusBarOrientation];
+    
+     if(orientation == UIInterfaceOrientationLandscapeLeft
+        || orientation == UIInterfaceOrientationLandscapeRight){
+         [self changeMenuViewOrientation: LANDSCAPE];
+     }else{
+         [self changeMenuViewOrientation: PORTRAIT];
+     }
 }
 
 @end
