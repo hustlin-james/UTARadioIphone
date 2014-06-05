@@ -8,6 +8,7 @@
 
 #import "SongRequestViewController.h"
 #import "AudioPlayerSingleton.h"
+#import <Parse/Parse.h>
 
 @interface SongRequestViewController ()
 
@@ -20,6 +21,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *songnameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *requestingTextField;
 @property (weak, nonatomic) IBOutlet UITextField *requestEmail;
+@property (weak, nonatomic) IBOutlet UIButton *submitBtn;
 
 @end
 
@@ -69,8 +71,14 @@
                                                object:nil];
     
     self.navigationItem.title = @"Song Request";
+    
+    
+   
 }
 
+- (void)viewDidLayoutSubviews{
+    //Stuff
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -78,6 +86,7 @@
 }
 - (IBAction)submitBtnPressed:(id)sender {
     
+    [self disableFieldsAndBtn];
     if([self.songnameTextField.text isEqualToString:@""]){
         
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Song name missing" message:@"Please enter a song name" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
@@ -90,9 +99,51 @@
         NSString *requester = self.requestingTextField.text;
         NSString *requesterEmail = self.requestEmail.text;
         
-        NSLog(@"Making parse request");
+        //NSLog(@"Making parse request");
+        PFObject *songRequest = [PFObject objectWithClassName:@"SongRequest"];
+        songRequest[@"artist"] = artist;
+        songRequest[@"songName"] = songName;
+        songRequest[@"requester"] =requester;
+        songRequest[@"requesterEmail"] = requesterEmail;
+        
+        [songRequest saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+            if(succeeded){
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Success!" message:@"Your request has been sent." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                [alert show];
+            }else{
+                NSString *err = [error localizedDescription];
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:err delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                [alert show];
+            }
+            
+            [self enableFieldsAndBtn];
+        }];
     }
     
+    [self enableFieldsAndBtn];
+    
+}
+
+-(void) disableFieldsAndBtn{
+    self.artistTextField.enabled = NO;
+    self.songnameTextField.enabled = NO;
+    self.requestingTextField.enabled = NO;
+    self.requestEmail.enabled = NO;
+    self.submitBtn.enabled = NO;
+}
+
+
+- (void) enableFieldsAndBtn{
+    self.artistTextField.enabled = YES;
+    self.songnameTextField.enabled = YES;
+    self.requestingTextField.enabled = YES;
+    self.requestEmail.enabled = YES;
+    self.submitBtn.enabled = YES;
+    
+    self.artistTextField.text = @"";
+    self.songnameTextField.text =@"";
+    self.requestingTextField.text = @"";
+    self.requestEmail.text = @"";
 }
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField{

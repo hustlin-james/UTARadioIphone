@@ -26,6 +26,9 @@ typedef NS_ENUM(NSInteger, Orientation){
     UISwipeGestureRecognizer *showMenuGesture;
     UISwipeGestureRecognizer *hideMenuGesture;
     
+    //ViewControllers
+    HomeViewController *home;
+    
 }
 
 @property (nonatomic, strong) UIView *menuView;
@@ -46,7 +49,7 @@ typedef NS_ENUM(NSInteger, Orientation){
     [super viewDidLoad];
     
     CGFloat navBarHeight = self.navigationController.navigationBar.bounds.size.height;
-    NSLog(@"navBarHeight: %f", navBarHeight);
+   
     
     if(!player)
         player = [AudioPlayerSingleton singletonInstance];
@@ -168,11 +171,9 @@ typedef NS_ENUM(NSInteger, Orientation){
 
 -(void)handleGesture:(UISwipeGestureRecognizer *)gesture{
     if (gesture.direction == UISwipeGestureRecognizerDirectionRight) {
-        NSLog(@"Swipped right");
         [self toggleMenu:YES];
     }
     else{
-        NSLog(@"Swipped left");
         [self toggleMenu:NO];
     }
 }
@@ -268,7 +269,8 @@ typedef NS_ENUM(NSInteger, Orientation){
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     switch (indexPath.row) {
         case 0: {
-            HomeViewController *home = [HomeViewController new];
+            if(!home)
+                home = [HomeViewController new];
             [self.navigationController setViewControllers:@[home]];
         }
             break;

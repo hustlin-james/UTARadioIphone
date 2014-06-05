@@ -14,16 +14,40 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="uta_radio_logo_transparent.png" translatesAutoresizingMaskIntoConstraints="NO" id="wba-lR-aLY">
-                    <rect key="frame" x="34" y="113" width="252" height="139"/>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qVv-qK-hXo">
+                    <rect key="frame" x="0.0" y="20" width="320" height="466"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                </imageView>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dJi-CA-MYL">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="365"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <color key="backgroundColor" red="0.57570625450911694" green="1" blue="0.041050677373386302" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="365" id="ivJ-ip-vC1"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="dJi-CA-MYL" firstAttribute="top" secondItem="qVv-qK-hXo" secondAttribute="top" id="Gn0-29-vGq"/>
+                        <constraint firstAttribute="trailing" secondItem="dJi-CA-MYL" secondAttribute="trailing" id="OUO-j1-hZW"/>
+                        <constraint firstAttribute="centerX" secondItem="dJi-CA-MYL" secondAttribute="centerX" id="bqK-9C-yvu"/>
+                        <constraint firstAttribute="bottom" secondItem="dJi-CA-MYL" secondAttribute="bottom" constant="101" id="jns-60-1LX"/>
+                        <constraint firstItem="dJi-CA-MYL" firstAttribute="leading" secondItem="qVv-qK-hXo" secondAttribute="leading" id="tMo-uA-0Gv"/>
+                    </constraints>
+                </scrollView>
             </subviews>
             <constraints>
-                <constraint firstAttribute="centerX" secondItem="wba-lR-aLY" secondAttribute="centerX" id="a0S-pE-G0q"/>
+                <constraint firstAttribute="trailing" secondItem="qVv-qK-hXo" secondAttribute="trailing" id="0qO-YM-3Sc"/>
+                <constraint firstItem="qVv-qK-hXo" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="2ej-N9-Veh"/>
+                <constraint firstItem="qVv-qK-hXo" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" symbolic="YES" id="XPj-kI-lfA"/>
+                <constraint firstAttribute="bottom" secondItem="qVv-qK-hXo" secondAttribute="bottom" constant="-6" id="veG-qT-WQt"/>
             </constraints>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
         </view>
+        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="uta_radio_logo_transparent.png" id="wba-lR-aLY">
+            <rect key="frame" x="0.0" y="0.0" width="252" height="139"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+        </imageView>
     </objects>
     <resources>
         <image name="uta_radio_logo_transparent.png" width="300" height="198"/>

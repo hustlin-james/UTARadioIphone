@@ -12,6 +12,7 @@
                 <outlet property="requestingTextField" destination="rus-1q-ORj" id="DOk-9p-9xK"/>
                 <outlet property="scrollView" destination="MgA-aK-2eT" id="3q3-aE-WKh"/>
                 <outlet property="songnameTextField" destination="lvK-M7-TSH" id="xOZ-9M-KQo"/>
+                <outlet property="submitBtn" destination="DW3-dV-2it" id="zoE-an-4TY"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

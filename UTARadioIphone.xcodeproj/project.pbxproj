@@ -43,6 +43,7 @@
 		C1B150431940313F005656E2 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1B150421940313F005656E2 /* StoreKit.framework */; };
 		C1B1504519403145005656E2 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1B1504419403145005656E2 /* SystemConfiguration.framework */; };
 		C1B15048194031CD005656E2 /* ParseKey.m in Sources */ = {isa = PBXBuildFile; fileRef = C1B15047194031CD005656E2 /* ParseKey.m */; };
+		C1B1508F19404DA1005656E2 /* XMLReader.m in Sources */ = {isa = PBXBuildFile; fileRef = C1B1508E19404DA1005656E2 /* XMLReader.m */; };
 		C1F00F88193D0AB200135240 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1F00F87193D0AB200135240 /* MediaPlayer.framework */; };
 		C1F00F8A193D0ABA00135240 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1F00F89193D0ABA00135240 /* AVFoundation.framework */; };
 		C1F00F8C193D0AC900135240 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1F00F8B193D0AC900135240 /* CoreMedia.framework */; };
@@ -108,6 +109,8 @@
 		C1B1504419403145005656E2 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		C1B15046194031CD005656E2 /* ParseKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParseKey.h; sourceTree = "<group>"; };
 		C1B15047194031CD005656E2 /* ParseKey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParseKey.m; sourceTree = "<group>"; };
+		C1B1508D19404DA1005656E2 /* XMLReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLReader.h; sourceTree = "<group>"; };
+		C1B1508E19404DA1005656E2 /* XMLReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLReader.m; sourceTree = "<group>"; };
 		C1F00F87193D0AB200135240 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		C1F00F89193D0ABA00135240 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		C1F00F8B193D0AC900135240 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
@@ -199,9 +202,8 @@
 		C175FD36193CE32B00CE7C66 /* UTARadioIphone */ = {
 			isa = PBXGroup;
 			children = (
-				C1A9ECF7193FF8450034B3C5 /* Twitter_logo_blue.png */,
-				C1A9ECF5193FF7B00034B3C5 /* fb_logo_50.png */,
-				C1A9ECFA193FFA6A0034B3C5 /* uta_radio_logo_transparent.png */,
+				C1B15090194050CB005656E2 /* images */,
+				C1B1508C19404D95005656E2 /* xmlparserlib */,
 				C1A9ECED193FEEB80034B3C5 /* Contact */,
 				C1AEDE14193EF8D400067348 /* Social */,
 				C1B04A6A193D2A2000B9A7F1 /* AudioPlayerSingleton */,
@@ -314,6 +316,25 @@
 				C1B04A6C193D2CB100B9A7F1 /* AudioPlayerSingleton.m */,
 			);
 			name = AudioPlayerSingleton;
+			sourceTree = "<group>";
+		};
+		C1B1508C19404D95005656E2 /* xmlparserlib */ = {
+			isa = PBXGroup;
+			children = (
+				C1B1508D19404DA1005656E2 /* XMLReader.h */,
+				C1B1508E19404DA1005656E2 /* XMLReader.m */,
+			);
+			name = xmlparserlib;
+			sourceTree = "<group>";
+		};
+		C1B15090194050CB005656E2 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				C1A9ECF7193FF8450034B3C5 /* Twitter_logo_blue.png */,
+				C1A9ECF5193FF7B00034B3C5 /* fb_logo_50.png */,
+				C1A9ECFA193FFA6A0034B3C5 /* uta_radio_logo_transparent.png */,
+			);
+			name = images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -432,6 +453,7 @@
 				C1B15048194031CD005656E2 /* ParseKey.m in Sources */,
 				C1A9ECF1193FEEC60034B3C5 /* ContactUsViewController.m in Sources */,
 				C1AEDE18193EF8E400067348 /* SocialViewController.m in Sources */,
+				C1B1508F19404DA1005656E2 /* XMLReader.m in Sources */,
 				C175FD41193CE32B00CE7C66 /* AppDelegate.m in Sources */,
 				C175FD3D193CE32B00CE7C66 /* main.m in Sources */,
 				C175FD74193D038600CE7C66 /* SongRequestViewController.m in Sources */,
