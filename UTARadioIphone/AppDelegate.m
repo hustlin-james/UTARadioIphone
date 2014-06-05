@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import <Parse/Parse.h>
+#import "ParseKey.h"
 #import "HomeViewController.h"
 #import "AudioPlayerSingleton.h"
 
@@ -16,6 +18,9 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
+    
+    [Parse setApplicationId: [ParseKey appId] 
+                  clientKey: [ParseKey clientKey]];
    
     HomeViewController *home = [HomeViewController new];
     

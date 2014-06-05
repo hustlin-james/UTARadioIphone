@@ -36,5 +36,18 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+- (IBAction)facebookbtnTap:(id)sender {
+    NSString *urlStr = @"https://www.facebook.com/pages/UTA-Radio/152279484783168";
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:urlStr]];
+}
+
+- (IBAction)twitterbtnTap:(id)sender {
+    NSString *urlStr = @"https://twitter.com/UTARadio";
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:urlStr]];
+}
+
+- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType{
+    return NO;
+}
 
 @end

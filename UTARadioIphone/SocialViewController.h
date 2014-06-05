@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "SwipeTableViewController.h"
 
-@interface SocialViewController : SwipeTableViewController
+@interface SocialViewController : SwipeTableViewController <UIWebViewDelegate>
 
 @end

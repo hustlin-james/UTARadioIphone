@@ -7,6 +7,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SongRequestViewController">
             <connections>
                 <outlet property="artistTextField" destination="bV8-1f-2lc" id="sK3-0L-lpJ"/>
+                <outlet property="contentView" destination="uvd-og-bqK" id="bnI-Ma-qzS"/>
                 <outlet property="requestEmail" destination="4Qe-Ys-Hjf" id="Rmy-6l-izI"/>
                 <outlet property="requestingTextField" destination="rus-1q-ORj" id="DOk-9p-9xK"/>
                 <outlet property="scrollView" destination="MgA-aK-2eT" id="3q3-aE-WKh"/>

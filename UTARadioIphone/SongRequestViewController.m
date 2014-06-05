@@ -13,6 +13,7 @@
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) UITextField *activeField;
+@property (weak, nonatomic) IBOutlet UIView *contentView;
 
 //Text Fields
 @property (weak, nonatomic) IBOutlet UITextField *artistTextField;
@@ -37,6 +38,24 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    NSLayoutConstraint *leftConstraint = [NSLayoutConstraint constraintWithItem:self.contentView
+                                                                      attribute:NSLayoutAttributeLeading
+                                                                      relatedBy:0
+                                                                         toItem:self.view
+                                                                      attribute:NSLayoutAttributeLeft
+                                                                     multiplier:1.0
+                                                                       constant:0];
+    [self.view addConstraint:leftConstraint];
+    
+    NSLayoutConstraint *rightConstraint = [NSLayoutConstraint constraintWithItem:self.contentView
+                                                                       attribute:NSLayoutAttributeTrailing
+                                                                       relatedBy:0
+                                                                          toItem:self.view
+                                                                       attribute:NSLayoutAttributeRight
+                                                                      multiplier:1.0
+                                                                        constant:0];
+    [self.view addConstraint:rightConstraint];
     
     //TODO: unregister these events when dismissing the view controller
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -71,7 +90,7 @@
         NSString *requester = self.requestingTextField.text;
         NSString *requesterEmail = self.requestEmail.text;
         
-        
+        NSLog(@"Making parse request");
     }
     
 }
@@ -82,6 +101,12 @@
 
 - (void)textFieldDidEndEditing:(UITextField *)textField{
     self.activeField = nil;
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField{
+    [textField resignFirstResponder];
+  
+    return YES;
 }
 
 - (void) keyboardDidShow:(NSNotification *)notification
@@ -103,7 +128,13 @@
 
 - (void) keyboardWillBeHidden:(NSNotification *)notification
 {
+    NSDictionary* info = [notification userInfo];
+    CGRect kbRect = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue];
+    kbRect = [self.view convertRect:kbRect fromView:nil];
+    
     UIEdgeInsets contentInsets = UIEdgeInsetsZero;
+    
+    contentInsets = UIEdgeInsetsMake(60, 0, -60, 0);
     self.scrollView.contentInset = contentInsets;
     self.scrollView.scrollIndicatorInsets = contentInsets;
 }
