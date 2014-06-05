@@ -1,19 +1,18 @@
 //
-//  StaffViewController.m
+//  ContactUsViewController.m
 //  UTARadioIphone
 //
-//  Created by James Fielder on 6/2/14.
+//  Created by James Fielder on 6/4/14.
 //  Copyright (c) 2014 com.mobi. All rights reserved.
 //
 
-#import "StaffViewController.h"
-#import "AudioPlayerSingleton.h"
+#import "ContactUsViewController.h"
 
-@interface StaffViewController ()
+@interface ContactUsViewController ()
 
 @end
 
-@implementation StaffViewController
+@implementation ContactUsViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -28,7 +27,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.navigationItem.title = @"Staff";
+    self.navigationItem.title = @"Contact Us!";
 }
 
 - (void)didReceiveMemoryWarning

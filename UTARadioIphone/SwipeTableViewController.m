@@ -60,7 +60,27 @@ typedef NS_ENUM(NSInteger, Orientation){
     
     showMenuGesture = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleGesture:)];
     showMenuGesture.direction = UISwipeGestureRecognizerDirectionRight;
+    showMenuGesture.cancelsTouchesInView = NO;
     [self.view addGestureRecognizer:showMenuGesture];
+   
+    //customizing the navigation bar
+    [self customizeNavBar];
+}
+
+- (void)customizeNavBar{
+    NSLog(@"customizing nav bar");
+    
+    //Set the nav bar attributes
+    [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:47.0/255 green:152.0/255 blue:1.0 alpha:1]];
+    
+    //Set the title attributes
+    NSShadow *shadow = [[NSShadow alloc] init];
+    shadow.shadowColor = [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.8];
+    shadow.shadowOffset = CGSizeMake(0, 1);
+    [[UINavigationBar appearance] setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys:
+                                                           [UIColor colorWithRed:245.0/255.0 green:245.0/255.0 blue:245.0/255.0 alpha:1.0], NSForegroundColorAttributeName,
+                                                           shadow, NSShadowAttributeName,
+                                                           [UIFont fontWithName:@"HelveticaNeue-CondensedBlack" size:21.0], NSFontAttributeName, nil]];
 }
 
 - (void)didReceiveMemoryWarning
@@ -118,7 +138,8 @@ typedef NS_ENUM(NSInteger, Orientation){
         
     self.menuView = [[UIView alloc] initWithFrame:frameRect];
     
-    self.menuView.backgroundColor = [UIColor colorWithRed:0.2 green:0.2 blue:0.2 alpha:1.0];
+    //self.menuView.backgroundColor = [UIColor colorWithRed:0.2 green:0.2 blue:0.2 alpha:1.0];
+    self.menuView.backgroundColor = [UIColor lightGrayColor];
     [self.view addSubview:self.menuView];
     
     // Setup the table view.
@@ -232,8 +253,8 @@ typedef NS_ENUM(NSInteger, Orientation){
     }
     
     cell.textLabel.text = menuOptionText;
-    cell.textLabel.textColor = [UIColor lightGrayColor];
-    cell.textLabel.font = [UIFont fontWithName:@"Futura" size:13.0];
+    cell.textLabel.textColor = [UIColor whiteColor];
+    cell.textLabel.font = [UIFont fontWithName:@"HelveticaNeue-CondensedBlack" size:13.0];
     cell.textLabel.textAlignment = NSTextAlignmentCenter;
     cell.backgroundColor = [UIColor clearColor];
     
@@ -256,14 +277,13 @@ typedef NS_ENUM(NSInteger, Orientation){
             [self.navigationController setViewControllers:@[sr]];
         }
             break;
-            
         case 2: {
             StaffViewController *staff = [StaffViewController new];
             [self.navigationController setViewControllers:@[staff]];
         }
         case 3: {
             SocialViewController *social = [SocialViewController new];
-            [self.navigationController setViewControllers:social];
+            [self.navigationController setViewControllers:@[social]];
         }
         default:
             break;

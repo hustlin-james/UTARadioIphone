@@ -24,6 +24,8 @@
 		C175FD75193D038600CE7C66 /* SongRequestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C175FD73193D038600CE7C66 /* SongRequestViewController.xib */; };
 		C175FD7A193D059200CE7C66 /* StaffViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C175FD78193D059200CE7C66 /* StaffViewController.m */; };
 		C175FD7B193D059200CE7C66 /* StaffViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C175FD79193D059200CE7C66 /* StaffViewController.xib */; };
+		C1A9ECF1193FEEC60034B3C5 /* ContactUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C1A9ECEF193FEEC60034B3C5 /* ContactUsViewController.m */; };
+		C1A9ECF2193FEEC60034B3C5 /* ContactUsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1A9ECF0193FEEC60034B3C5 /* ContactUsViewController.xib */; };
 		C1AEDE18193EF8E400067348 /* SocialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C1AEDE16193EF8E400067348 /* SocialViewController.m */; };
 		C1AEDE19193EF8E400067348 /* SocialViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1AEDE17193EF8E400067348 /* SocialViewController.xib */; };
 		C1B04A6D193D2CB100B9A7F1 /* AudioPlayerSingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = C1B04A6C193D2CB100B9A7F1 /* AudioPlayerSingleton.m */; };
@@ -69,6 +71,9 @@
 		C175FD77193D059200CE7C66 /* StaffViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StaffViewController.h; sourceTree = "<group>"; };
 		C175FD78193D059200CE7C66 /* StaffViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StaffViewController.m; sourceTree = "<group>"; };
 		C175FD79193D059200CE7C66 /* StaffViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StaffViewController.xib; sourceTree = "<group>"; };
+		C1A9ECEE193FEEC60034B3C5 /* ContactUsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactUsViewController.h; sourceTree = "<group>"; };
+		C1A9ECEF193FEEC60034B3C5 /* ContactUsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactUsViewController.m; sourceTree = "<group>"; };
+		C1A9ECF0193FEEC60034B3C5 /* ContactUsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContactUsViewController.xib; sourceTree = "<group>"; };
 		C1AEDE15193EF8E400067348 /* SocialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocialViewController.h; sourceTree = "<group>"; };
 		C1AEDE16193EF8E400067348 /* SocialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocialViewController.m; sourceTree = "<group>"; };
 		C1AEDE17193EF8E400067348 /* SocialViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SocialViewController.xib; sourceTree = "<group>"; };
@@ -145,6 +150,7 @@
 		C175FD36193CE32B00CE7C66 /* UTARadioIphone */ = {
 			isa = PBXGroup;
 			children = (
+				C1A9ECED193FEEB80034B3C5 /* Contact */,
 				C1AEDE14193EF8D400067348 /* Social */,
 				C1B04A6A193D2A2000B9A7F1 /* AudioPlayerSingleton */,
 				C175FD76193D057A00CE7C66 /* Staff */,
@@ -225,6 +231,16 @@
 				C175FD79193D059200CE7C66 /* StaffViewController.xib */,
 			);
 			name = Staff;
+			sourceTree = "<group>";
+		};
+		C1A9ECED193FEEB80034B3C5 /* Contact */ = {
+			isa = PBXGroup;
+			children = (
+				C1A9ECEE193FEEC60034B3C5 /* ContactUsViewController.h */,
+				C1A9ECEF193FEEC60034B3C5 /* ContactUsViewController.m */,
+				C1A9ECF0193FEEC60034B3C5 /* ContactUsViewController.xib */,
+			);
+			name = Contact;
 			sourceTree = "<group>";
 		};
 		C1AEDE14193EF8D400067348 /* Social */ = {
@@ -332,6 +348,7 @@
 				C175FD7B193D059200CE7C66 /* StaffViewController.xib in Resources */,
 				C1F00F9C193D1C6500135240 /* HomeViewController.xib in Resources */,
 				C1AEDE19193EF8E400067348 /* SocialViewController.xib in Resources */,
+				C1A9ECF2193FEEC60034B3C5 /* ContactUsViewController.xib in Resources */,
 				C175FD75193D038600CE7C66 /* SongRequestViewController.xib in Resources */,
 				C175FD43193CE32B00CE7C66 /* Images.xcassets in Resources */,
 			);
@@ -355,6 +372,7 @@
 				C175FD61193CF09000CE7C66 /* SwipeTableViewController.m in Sources */,
 				C175FD7A193D059200CE7C66 /* StaffViewController.m in Sources */,
 				C1B04A6D193D2CB100B9A7F1 /* AudioPlayerSingleton.m in Sources */,
+				C1A9ECF1193FEEC60034B3C5 /* ContactUsViewController.m in Sources */,
 				C1AEDE18193EF8E400067348 /* SocialViewController.m in Sources */,
 				C175FD41193CE32B00CE7C66 /* AppDelegate.m in Sources */,
 				C175FD3D193CE32B00CE7C66 /* main.m in Sources */,

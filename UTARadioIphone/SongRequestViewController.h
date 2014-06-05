@@ -10,5 +10,5 @@
 #import "SwipeTableViewController.h"
 #import "HomeViewController.h"
 
-@interface SongRequestViewController : HomeViewController
+@interface SongRequestViewController : SwipeTableViewController <UITextFieldDelegate>
 @end

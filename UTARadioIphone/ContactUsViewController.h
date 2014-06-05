@@ -1,5 +1,5 @@
 //
-//  SocialViewController.h
+//  ContactUsViewController.h
 //  UTARadioIphone
 //
 //  Created by James Fielder on 6/4/14.
@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "SwipeTableViewController.h"
 
-@interface SocialViewController : SwipeTableViewController
+@interface ContactUsViewController : SwipeTableViewController
 
 @end
