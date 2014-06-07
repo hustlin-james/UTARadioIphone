@@ -8,7 +8,6 @@
             <connections>
                 <outlet property="artistTextField" destination="bV8-1f-2lc" id="sK3-0L-lpJ"/>
                 <outlet property="contentView" destination="uvd-og-bqK" id="bnI-Ma-qzS"/>
-                <outlet property="requestEmail" destination="4Qe-Ys-Hjf" id="Rmy-6l-izI"/>
                 <outlet property="requestingTextField" destination="rus-1q-ORj" id="DOk-9p-9xK"/>
                 <outlet property="scrollView" destination="MgA-aK-2eT" id="3q3-aE-WKh"/>
                 <outlet property="songnameTextField" destination="lvK-M7-TSH" id="xOZ-9M-KQo"/>
@@ -78,23 +77,7 @@
                                         <outlet property="delegate" destination="-1" id="U3y-vk-0u0"/>
                                     </connections>
                                 </textField>
-                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Requester's Email" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lrt-AD-cHD">
-                                    <rect key="frame" x="17" y="236" width="139" height="21"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                    <color key="textColor" red="0.18263013140000001" green="0.59551080349999996" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
-                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="optional*" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4Qe-Ys-Hjf">
-                                    <rect key="frame" x="14" y="265" width="286" height="30"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                    <textInputTraits key="textInputTraits" returnKeyType="done"/>
-                                    <connections>
-                                        <outlet property="delegate" destination="-1" id="rUw-H6-w8h"/>
-                                    </connections>
-                                </textField>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DW3-dV-2it">
+                                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DW3-dV-2it">
                                     <rect key="frame" x="110" y="308" width="100" height="30"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <color key="backgroundColor" red="0.18263013144053664" green="0.59551080353963992" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -102,27 +85,41 @@
                                         <constraint firstAttribute="width" constant="100" id="a9b-X1-1bc"/>
                                     </constraints>
                                     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <state key="normal" title="Submit">
+                                    <state key="normal" title="Send">
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
                                     <connections>
-                                        <action selector="submitBtnPressed:" destination="-1" eventType="touchUpInside" id="AEl-b8-7AJ"/>
+                                        <action selector="submitBtnPressed:" destination="-1" eventType="touchUpInside" id="9R5-Dg-wTd"/>
+                                    </connections>
+                                </button>
+                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Or Call Us: " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nxw-Ca-xWh">
+                                    <rect key="frame" x="20" y="253" width="89" height="21"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cvW-NS-czW">
+                                    <rect key="frame" x="110" y="244" width="146" height="30"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" red="0.18263013140000001" green="0.59551080349999996" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <state key="normal" title="817-272-2651">
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="callUsBtnPressed:" destination="-1" eventType="touchUpInside" id="TEG-0O-zhf"/>
                                     </connections>
                                 </button>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             <constraints>
-                                <constraint firstItem="Lrt-AD-cHD" firstAttribute="top" secondItem="rus-1q-ORj" secondAttribute="bottom" constant="12" id="30W-hM-5Gd"/>
-                                <constraint firstItem="lvK-M7-TSH" firstAttribute="leading" secondItem="Lrt-AD-cHD" secondAttribute="leading" id="6OV-6z-Rcg"/>
                                 <constraint firstItem="ylT-p9-354" firstAttribute="top" secondItem="bV8-1f-2lc" secondAttribute="bottom" constant="15" id="6iL-rr-Fqs"/>
                                 <constraint firstItem="rus-1q-ORj" firstAttribute="top" secondItem="iJY-PE-qLr" secondAttribute="bottom" constant="8" symbolic="YES" id="7RA-0W-ih6"/>
                                 <constraint firstItem="bV8-1f-2lc" firstAttribute="top" secondItem="uvd-og-bqK" secondAttribute="top" constant="53" id="Ar8-cw-eS0"/>
                                 <constraint firstItem="bV8-1f-2lc" firstAttribute="leading" secondItem="ylT-p9-354" secondAttribute="leading" id="CCD-ME-5kq"/>
                                 <constraint firstAttribute="centerX" secondItem="rus-1q-ORj" secondAttribute="centerX" constant="1.5" id="G6u-w7-CTo"/>
-                                <constraint firstItem="DW3-dV-2it" firstAttribute="top" secondItem="4Qe-Ys-Hjf" secondAttribute="bottom" constant="13" id="GUe-Uv-Y0F"/>
                                 <constraint firstItem="bV8-1f-2lc" firstAttribute="trailing" secondItem="lvK-M7-TSH" secondAttribute="trailing" id="Iug-Yd-GDb"/>
-                                <constraint firstItem="bV8-1f-2lc" firstAttribute="trailing" secondItem="4Qe-Ys-Hjf" secondAttribute="trailing" id="KCC-yb-OLv"/>
-                                <constraint firstAttribute="centerX" secondItem="4Qe-Ys-Hjf" secondAttribute="centerX" constant="3" id="LT8-mb-5Jg"/>
                                 <constraint firstAttribute="centerX" secondItem="DW3-dV-2it" secondAttribute="centerX" id="Lhu-xN-CR2"/>
                                 <constraint firstItem="bV8-1f-2lc" firstAttribute="top" secondItem="vcQ-uB-UVa" secondAttribute="bottom" constant="8" symbolic="YES" id="QFg-Qu-Hye"/>
                                 <constraint firstItem="bV8-1f-2lc" firstAttribute="trailing" secondItem="rus-1q-ORj" secondAttribute="trailing" id="RmT-Y4-IU2"/>
@@ -135,7 +132,6 @@
                                 <constraint firstItem="lvK-M7-TSH" firstAttribute="top" secondItem="ylT-p9-354" secondAttribute="bottom" constant="8" symbolic="YES" id="rE7-fm-hf1"/>
                                 <constraint firstItem="bV8-1f-2lc" firstAttribute="leading" secondItem="iJY-PE-qLr" secondAttribute="leading" id="sUI-eR-cpO"/>
                                 <constraint firstItem="bV8-1f-2lc" firstAttribute="leading" secondItem="vcQ-uB-UVa" secondAttribute="leading" id="xvG-XG-kT7"/>
-                                <constraint firstItem="4Qe-Ys-Hjf" firstAttribute="top" secondItem="Lrt-AD-cHD" secondAttribute="bottom" constant="8" symbolic="YES" id="yrg-7T-xJk"/>
                             </constraints>
                         </view>
                     </subviews>

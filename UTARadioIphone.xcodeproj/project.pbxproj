@@ -29,6 +29,7 @@
 		C1A9ECF6193FF7B00034B3C5 /* fb_logo_50.png in Resources */ = {isa = PBXBuildFile; fileRef = C1A9ECF5193FF7B00034B3C5 /* fb_logo_50.png */; };
 		C1A9ECF8193FF8450034B3C5 /* Twitter_logo_blue.png in Resources */ = {isa = PBXBuildFile; fileRef = C1A9ECF7193FF8450034B3C5 /* Twitter_logo_blue.png */; };
 		C1A9ECFB193FFA6A0034B3C5 /* uta_radio_logo_transparent.png in Resources */ = {isa = PBXBuildFile; fileRef = C1A9ECFA193FFA6A0034B3C5 /* uta_radio_logo_transparent.png */; };
+		C1AB84ED1940F76A00F2FEAD /* MarqueeLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = C1AB84EC1940F76A00F2FEAD /* MarqueeLabel.m */; };
 		C1AEDE18193EF8E400067348 /* SocialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C1AEDE16193EF8E400067348 /* SocialViewController.m */; };
 		C1AEDE19193EF8E400067348 /* SocialViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1AEDE17193EF8E400067348 /* SocialViewController.xib */; };
 		C1B04A6D193D2CB100B9A7F1 /* AudioPlayerSingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = C1B04A6C193D2CB100B9A7F1 /* AudioPlayerSingleton.m */; };
@@ -92,6 +93,8 @@
 		C1A9ECF5193FF7B00034B3C5 /* fb_logo_50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fb_logo_50.png; sourceTree = "<group>"; };
 		C1A9ECF7193FF8450034B3C5 /* Twitter_logo_blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Twitter_logo_blue.png; sourceTree = "<group>"; };
 		C1A9ECFA193FFA6A0034B3C5 /* uta_radio_logo_transparent.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = uta_radio_logo_transparent.png; sourceTree = "<group>"; };
+		C1AB84EB1940F76A00F2FEAD /* MarqueeLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MarqueeLabel.h; sourceTree = "<group>"; };
+		C1AB84EC1940F76A00F2FEAD /* MarqueeLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MarqueeLabel.m; sourceTree = "<group>"; };
 		C1AEDE15193EF8E400067348 /* SocialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocialViewController.h; sourceTree = "<group>"; };
 		C1AEDE16193EF8E400067348 /* SocialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocialViewController.m; sourceTree = "<group>"; };
 		C1AEDE17193EF8E400067348 /* SocialViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SocialViewController.xib; sourceTree = "<group>"; };
@@ -202,6 +205,7 @@
 		C175FD36193CE32B00CE7C66 /* UTARadioIphone */ = {
 			isa = PBXGroup;
 			children = (
+				C1AB84EA1940F75B00F2FEAD /* marqueelib */,
 				C1B15090194050CB005656E2 /* images */,
 				C1B1508C19404D95005656E2 /* xmlparserlib */,
 				C1A9ECED193FEEB80034B3C5 /* Contact */,
@@ -299,6 +303,15 @@
 			name = Contact;
 			sourceTree = "<group>";
 		};
+		C1AB84EA1940F75B00F2FEAD /* marqueelib */ = {
+			isa = PBXGroup;
+			children = (
+				C1AB84EB1940F76A00F2FEAD /* MarqueeLabel.h */,
+				C1AB84EC1940F76A00F2FEAD /* MarqueeLabel.m */,
+			);
+			name = marqueelib;
+			sourceTree = "<group>";
+		};
 		C1AEDE14193EF8D400067348 /* Social */ = {
 			isa = PBXGroup;
 			children = (
@@ -385,6 +398,7 @@
 				ORGANIZATIONNAME = com.mobi;
 				TargetAttributes = {
 					C175FD2C193CE32B00CE7C66 = {
+						DevelopmentTeam = D782EMYT99;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -452,6 +466,7 @@
 				C1B04A6D193D2CB100B9A7F1 /* AudioPlayerSingleton.m in Sources */,
 				C1B15048194031CD005656E2 /* ParseKey.m in Sources */,
 				C1A9ECF1193FEEC60034B3C5 /* ContactUsViewController.m in Sources */,
+				C1AB84ED1940F76A00F2FEAD /* MarqueeLabel.m in Sources */,
 				C1AEDE18193EF8E400067348 /* SocialViewController.m in Sources */,
 				C1B1508F19404DA1005656E2 /* XMLReader.m in Sources */,
 				C175FD41193CE32B00CE7C66 /* AppDelegate.m in Sources */,
@@ -574,6 +589,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -593,6 +609,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",

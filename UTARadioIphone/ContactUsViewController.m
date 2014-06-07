@@ -9,7 +9,7 @@
 #import "ContactUsViewController.h"
 
 @interface ContactUsViewController ()
-
+@property (weak, nonatomic) IBOutlet UITextView *textView;
 @end
 
 @implementation ContactUsViewController
@@ -28,6 +28,12 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.navigationItem.title = @"Contact Us!";
+}
+
+- (void) viewDidLayoutSubviews{
+    NSString *textViewStr = @"";
+    textViewStr = [textViewStr stringByAppendingFormat:@"%@\n%@\n\n%@\n%@", @"UTA Radio", @"radio@uta.edu", @"MOBI", @"uta.mobi@gmail.com"];
+    [self.textView setText:textViewStr];
 }
 
 - (void)didReceiveMemoryWarning

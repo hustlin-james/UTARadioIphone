@@ -20,7 +20,6 @@
 @property (weak, nonatomic) IBOutlet UITextField *artistTextField;
 @property (weak, nonatomic) IBOutlet UITextField *songnameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *requestingTextField;
-@property (weak, nonatomic) IBOutlet UITextField *requestEmail;
 @property (weak, nonatomic) IBOutlet UIButton *submitBtn;
 
 @end
@@ -84,6 +83,12 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+- (IBAction)callUsBtnPressed:(id)sender {
+    NSLog(@"callUsBrnPressed");
+    NSString *phoneStr = @"tel:8172722651";
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:phoneStr]];
+}
+
 - (IBAction)submitBtnPressed:(id)sender {
     
     [self disableFieldsAndBtn];
@@ -97,14 +102,12 @@
         NSString *artist = self.artistTextField.text;
         NSString *songName = self.songnameTextField.text;
         NSString *requester = self.requestingTextField.text;
-        NSString *requesterEmail = self.requestEmail.text;
         
         //NSLog(@"Making parse request");
         PFObject *songRequest = [PFObject objectWithClassName:@"SongRequest"];
         songRequest[@"artist"] = artist;
         songRequest[@"songName"] = songName;
         songRequest[@"requester"] =requester;
-        songRequest[@"requesterEmail"] = requesterEmail;
         
         [songRequest saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
             if(succeeded){
@@ -128,7 +131,6 @@
     self.artistTextField.enabled = NO;
     self.songnameTextField.enabled = NO;
     self.requestingTextField.enabled = NO;
-    self.requestEmail.enabled = NO;
     self.submitBtn.enabled = NO;
 }
 
@@ -137,13 +139,11 @@
     self.artistTextField.enabled = YES;
     self.songnameTextField.enabled = YES;
     self.requestingTextField.enabled = YES;
-    self.requestEmail.enabled = YES;
     self.submitBtn.enabled = YES;
     
     self.artistTextField.text = @"";
     self.songnameTextField.text =@"";
     self.requestingTextField.text = @"";
-    self.requestEmail.text = @"";
 }
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField{

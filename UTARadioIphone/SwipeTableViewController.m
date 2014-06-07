@@ -12,6 +12,11 @@
 #import "StaffViewController.h"
 #import "AudioPlayerSingleton.h"
 #import "SocialViewController.h"
+#import "ContactUsViewController.h"
+
+#import <MediaPlayer/MPNowPlayingInfoCenter.h>
+#import <MediaPlayer/MPMediaItem.h>
+#import <AVFoundation/AVFoundation.h>
 
 #define menuWidth 150.0
 
@@ -25,10 +30,6 @@ typedef NS_ENUM(NSInteger, Orientation){
     
     UISwipeGestureRecognizer *showMenuGesture;
     UISwipeGestureRecognizer *hideMenuGesture;
-    
-    //ViewControllers
-    HomeViewController *home;
-    
 }
 
 @property (nonatomic, strong) UIView *menuView;
@@ -44,12 +45,51 @@ typedef NS_ENUM(NSInteger, Orientation){
 
 @implementation SwipeTableViewController
 
+- (void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    NSLog(@"viewDidAppear");
+    [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
+    [self becomeFirstResponder];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    NSLog(@"viewWillDisappear");
+    [[UIApplication sharedApplication] endReceivingRemoteControlEvents];
+    [self resignFirstResponder];
+}
+
+-(BOOL)canBecomeFirstResponder {
+    return YES;
+}
+
+- (void)remoteControlReceivedWithEvent:(UIEvent *)event {
+    NSLog(@"remoteControlReceivedWithEvent");
+    switch (event.subtype) {
+        case UIEventSubtypeRemoteControlTogglePlayPause:
+            NSLog(@"PlayerPause");
+            [player togglePlayPause];
+            break;
+        case UIEventSubtypeRemoteControlPlay:
+            NSLog(@"play");
+            [player togglePlayPause];
+            break;
+        case UIEventSubtypeRemoteControlPause:
+            NSLog(@"Pause");
+            [player togglePlayPause];
+            break;
+        case UIEventSubtypeRemoteControlNextTrack:
+            break;
+        case UIEventSubtypeRemoteControlPreviousTrack:
+            break;
+        default:
+            break;
+    }
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    CGFloat navBarHeight = self.navigationController.navigationBar.bounds.size.height;
-   
     
     if(!player)
         player = [AudioPlayerSingleton singletonInstance];
@@ -71,8 +111,6 @@ typedef NS_ENUM(NSInteger, Orientation){
 }
 
 - (void)customizeNavBar{
-    NSLog(@"customizing nav bar");
-    
     //Set the nav bar attributes
     [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:47.0/255 green:152.0/255 blue:1.0 alpha:1]];
     
@@ -166,6 +204,7 @@ typedef NS_ENUM(NSInteger, Orientation){
         hideMenuGesture = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleGesture:)];
         hideMenuGesture.direction = UISwipeGestureRecognizerDirectionLeft;
         [self.menuView addGestureRecognizer:hideMenuGesture];
+        [self.view addGestureRecognizer:hideMenuGesture];
     }
 }
 
@@ -226,7 +265,7 @@ typedef NS_ENUM(NSInteger, Orientation){
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 4;
+    return 5;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -249,6 +288,10 @@ typedef NS_ENUM(NSInteger, Orientation){
             break;
         case 3:
             menuOptionText = @"Social";
+            break;
+        case 4:
+            menuOptionText = @"Contact Us";
+            break;
         default:
             break;
     }
@@ -269,13 +312,12 @@ typedef NS_ENUM(NSInteger, Orientation){
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     switch (indexPath.row) {
         case 0: {
-            if(!home)
-                home = [HomeViewController new];
+            HomeViewController *home = [HomeViewController new];
             [self.navigationController setViewControllers:@[home]];
         }
             break;
         case 1: {
-            SongRequestViewController *sr = [SongRequestViewController new];
+            SongRequestViewController *sr= [SongRequestViewController new];
             [self.navigationController setViewControllers:@[sr]];
         }
             break;
@@ -286,6 +328,10 @@ typedef NS_ENUM(NSInteger, Orientation){
         case 3: {
             SocialViewController *social = [SocialViewController new];
             [self.navigationController setViewControllers:@[social]];
+        }
+        case 4:{
+            ContactUsViewController *contactUs = [ContactUsViewController new];
+            [self.navigationController setViewControllers:@[contactUs]];
         }
         default:
             break;
@@ -315,4 +361,14 @@ typedef NS_ENUM(NSInteger, Orientation){
      }
 }
 
+- (void)setNowPlayingWithSongTitle: (NSString *)songTitle andArtist: (NSString *)artist{
+    Class playingInfoCenter = NSClassFromString(@"MPNowPlayingInfoCenter");
+    
+    if(playingInfoCenter){
+         NSMutableDictionary *songInfo = [[NSMutableDictionary alloc] init];
+        [songInfo setObject:songTitle forKey:MPMediaItemPropertyTitle];
+        [songInfo setObject:artist forKey:MPMediaItemPropertyArtist];
+        [[MPNowPlayingInfoCenter defaultCenter] setNowPlayingInfo:songInfo];
+    }
+}
 @end

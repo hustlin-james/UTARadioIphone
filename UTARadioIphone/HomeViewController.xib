@@ -6,6 +6,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController">
             <connections>
+                <outlet property="contentView" destination="dJi-CA-MYL" id="9oc-rH-6pq"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -18,36 +19,39 @@
                     <rect key="frame" x="0.0" y="20" width="320" height="466"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <subviews>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dJi-CA-MYL">
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dJi-CA-MYL" userLabel="Content View">
                             <rect key="frame" x="0.0" y="0.0" width="320" height="365"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                            <color key="backgroundColor" red="0.57570625450911694" green="1" blue="0.041050677373386302" alpha="1" colorSpace="calibratedRGB"/>
+                            <subviews>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="uta_radio_logo_transparent.png" translatesAutoresizingMaskIntoConstraints="NO" id="wba-lR-aLY">
+                                    <rect key="frame" x="34" y="20" width="252" height="139"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </imageView>
+                            </subviews>
                             <constraints>
-                                <constraint firstAttribute="height" constant="365" id="ivJ-ip-vC1"/>
+                                <constraint firstItem="wba-lR-aLY" firstAttribute="top" secondItem="dJi-CA-MYL" secondAttribute="top" constant="20" symbolic="YES" id="AZ2-Rt-SJ0"/>
+                                <constraint firstAttribute="height" constant="365" id="Nge-xr-aPq"/>
+                                <constraint firstAttribute="centerX" secondItem="wba-lR-aLY" secondAttribute="centerX" id="jqO-mh-14u"/>
                             </constraints>
                         </view>
                     </subviews>
                     <constraints>
-                        <constraint firstItem="dJi-CA-MYL" firstAttribute="top" secondItem="qVv-qK-hXo" secondAttribute="top" id="Gn0-29-vGq"/>
-                        <constraint firstAttribute="trailing" secondItem="dJi-CA-MYL" secondAttribute="trailing" id="OUO-j1-hZW"/>
-                        <constraint firstAttribute="centerX" secondItem="dJi-CA-MYL" secondAttribute="centerX" id="bqK-9C-yvu"/>
-                        <constraint firstAttribute="bottom" secondItem="dJi-CA-MYL" secondAttribute="bottom" constant="101" id="jns-60-1LX"/>
-                        <constraint firstItem="dJi-CA-MYL" firstAttribute="leading" secondItem="qVv-qK-hXo" secondAttribute="leading" id="tMo-uA-0Gv"/>
+                        <constraint firstItem="dJi-CA-MYL" firstAttribute="top" secondItem="qVv-qK-hXo" secondAttribute="top" id="6n2-57-Chd"/>
+                        <constraint firstAttribute="centerX" secondItem="dJi-CA-MYL" secondAttribute="centerX" id="CAd-8M-13D"/>
+                        <constraint firstItem="dJi-CA-MYL" firstAttribute="leading" secondItem="qVv-qK-hXo" secondAttribute="leading" id="EJn-vp-uoX"/>
+                        <constraint firstAttribute="bottom" secondItem="dJi-CA-MYL" secondAttribute="bottom" constant="101" id="IJA-uH-VNy"/>
+                        <constraint firstAttribute="trailing" secondItem="dJi-CA-MYL" secondAttribute="trailing" id="gcr-ch-14D"/>
                     </constraints>
                 </scrollView>
             </subviews>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="qVv-qK-hXo" secondAttribute="trailing" id="0qO-YM-3Sc"/>
-                <constraint firstItem="qVv-qK-hXo" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="2ej-N9-Veh"/>
-                <constraint firstItem="qVv-qK-hXo" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" symbolic="YES" id="XPj-kI-lfA"/>
-                <constraint firstAttribute="bottom" secondItem="qVv-qK-hXo" secondAttribute="bottom" constant="-6" id="veG-qT-WQt"/>
+                <constraint firstItem="qVv-qK-hXo" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" symbolic="YES" id="TRd-DC-jG1"/>
+                <constraint firstAttribute="bottom" secondItem="qVv-qK-hXo" secondAttribute="bottom" constant="-6" id="Y3B-Hd-M4G"/>
+                <constraint firstAttribute="centerX" secondItem="qVv-qK-hXo" secondAttribute="centerX" id="h6l-S5-rzo"/>
+                <constraint firstItem="qVv-qK-hXo" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="kTG-Ef-9Jc"/>
             </constraints>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
         </view>
-        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="uta_radio_logo_transparent.png" id="wba-lR-aLY">
-            <rect key="frame" x="0.0" y="0.0" width="252" height="139"/>
-            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-        </imageView>
     </objects>
     <resources>
         <image name="uta_radio_logo_transparent.png" width="300" height="198"/>

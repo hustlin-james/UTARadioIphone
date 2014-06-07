@@ -109,6 +109,17 @@ typedef NS_ENUM(NSInteger, Orientation){
     return [player rate] != 0.f;
 }
 
+- (void)togglePlayPause {
+    if ([self isPlaying]) {
+        [player pause];
+        [self showPlayButton];
+    } else {
+        [player play];
+        [self showPauseButton];
+    }
+}
+
+
 - (UIToolbar *) createBottomToolbar{
     if(!toolBar){
         CGRect screenRect = [[UIScreen mainScreen] bounds];

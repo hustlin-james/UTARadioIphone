@@ -13,4 +13,7 @@
 - (void) switchBottomToolbarToLandscape;
 - (void) switchBottomToolbarToPortrait;
 - (CGFloat)toolBarHeight;
+
+- (void)togglePlayPause;
+
 @end
