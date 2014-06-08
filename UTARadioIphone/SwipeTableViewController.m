@@ -30,6 +30,8 @@ typedef NS_ENUM(NSInteger, Orientation){
     
     UISwipeGestureRecognizer *showMenuGesture;
     UISwipeGestureRecognizer *hideMenuGesture;
+    
+    BOOL menuOpen;
 }
 
 @property (nonatomic, strong) UIView *menuView;
@@ -94,7 +96,19 @@ typedef NS_ENUM(NSInteger, Orientation){
     if(!player)
         player = [AudioPlayerSingleton singletonInstance];
     
-    [self.view addSubview: [player createBottomToolbar]];
+    
+    UIInterfaceOrientation orientation = [[UIApplication sharedApplication] statusBarOrientation];
+    
+    if(orientation == UIInterfaceOrientationLandscapeLeft ||
+       orientation == UIInterfaceOrientationLandscapeRight ){
+        NSLog(@"landscape starting");
+        [self.view addSubview: [player createBottomToolbar]];
+        [player switchBottomToolbarToLandscape];
+    }else{
+        [self.view addSubview: [player createBottomToolbar]];
+    }
+    
+    
     
 	//Create the side menu
     [self setupMenuView];
@@ -108,11 +122,16 @@ typedef NS_ENUM(NSInteger, Orientation){
    
     //customizing the navigation bar
     [self customizeNavBar];
+    
+    menuOpen = NO;
 }
+
 
 - (void)customizeNavBar{
     //Set the nav bar attributes
     [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:47.0/255 green:152.0/255 blue:1.0 alpha:1]];
+    
+    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
     
     //Set the title attributes
     NSShadow *shadow = [[NSShadow alloc] init];
@@ -122,6 +141,19 @@ typedef NS_ENUM(NSInteger, Orientation){
                                                            [UIColor colorWithRed:245.0/255.0 green:245.0/255.0 blue:245.0/255.0 alpha:1.0], NSForegroundColorAttributeName,
                                                            shadow, NSShadowAttributeName,
                                                            [UIFont fontWithName:@"HelveticaNeue-CondensedBlack" size:21.0], NSFontAttributeName, nil]];
+    
+    //Add the more button
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"morebar.png"] style:UIBarButtonItemStylePlain target:self action:@selector(navBtnMoreTapped)];
+}
+
+- (void) navBtnMoreTapped{
+    if(menuOpen){
+        menuOpen = NO;
+        [self toggleMenu:NO];
+    }else{
+        menuOpen = YES;
+        [self toggleMenu:YES];
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -211,9 +243,11 @@ typedef NS_ENUM(NSInteger, Orientation){
 -(void)handleGesture:(UISwipeGestureRecognizer *)gesture{
     if (gesture.direction == UISwipeGestureRecognizerDirectionRight) {
         [self toggleMenu:YES];
+        menuOpen = YES;
     }
     else{
         [self toggleMenu:NO];
+        menuOpen = NO;
     }
 }
 

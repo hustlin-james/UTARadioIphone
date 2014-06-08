@@ -24,6 +24,7 @@
 		C175FD75193D038600CE7C66 /* SongRequestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C175FD73193D038600CE7C66 /* SongRequestViewController.xib */; };
 		C175FD7A193D059200CE7C66 /* StaffViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C175FD78193D059200CE7C66 /* StaffViewController.m */; };
 		C175FD7B193D059200CE7C66 /* StaffViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C175FD79193D059200CE7C66 /* StaffViewController.xib */; };
+		C17BED071943FC2200DDFA36 /* morebar.png in Resources */ = {isa = PBXBuildFile; fileRef = C17BED061943FC2200DDFA36 /* morebar.png */; };
 		C1A9ECF1193FEEC60034B3C5 /* ContactUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C1A9ECEF193FEEC60034B3C5 /* ContactUsViewController.m */; };
 		C1A9ECF2193FEEC60034B3C5 /* ContactUsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1A9ECF0193FEEC60034B3C5 /* ContactUsViewController.xib */; };
 		C1A9ECF6193FF7B00034B3C5 /* fb_logo_50.png in Resources */ = {isa = PBXBuildFile; fileRef = C1A9ECF5193FF7B00034B3C5 /* fb_logo_50.png */; };
@@ -87,6 +88,7 @@
 		C175FD77193D059200CE7C66 /* StaffViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StaffViewController.h; sourceTree = "<group>"; };
 		C175FD78193D059200CE7C66 /* StaffViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StaffViewController.m; sourceTree = "<group>"; };
 		C175FD79193D059200CE7C66 /* StaffViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StaffViewController.xib; sourceTree = "<group>"; };
+		C17BED061943FC2200DDFA36 /* morebar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = morebar.png; sourceTree = "<group>"; };
 		C1A9ECEE193FEEC60034B3C5 /* ContactUsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactUsViewController.h; sourceTree = "<group>"; };
 		C1A9ECEF193FEEC60034B3C5 /* ContactUsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactUsViewController.m; sourceTree = "<group>"; };
 		C1A9ECF0193FEEC60034B3C5 /* ContactUsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContactUsViewController.xib; sourceTree = "<group>"; };
@@ -343,6 +345,7 @@
 		C1B15090194050CB005656E2 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				C17BED061943FC2200DDFA36 /* morebar.png */,
 				C1A9ECF7193FF8450034B3C5 /* Twitter_logo_blue.png */,
 				C1A9ECF5193FF7B00034B3C5 /* fb_logo_50.png */,
 				C1A9ECFA193FFA6A0034B3C5 /* uta_radio_logo_transparent.png */,
@@ -436,6 +439,7 @@
 				C175FD3B193CE32B00CE7C66 /* InfoPlist.strings in Resources */,
 				C1A9ECFB193FFA6A0034B3C5 /* uta_radio_logo_transparent.png in Resources */,
 				C175FD7B193D059200CE7C66 /* StaffViewController.xib in Resources */,
+				C17BED071943FC2200DDFA36 /* morebar.png in Resources */,
 				C1F00F9C193D1C6500135240 /* HomeViewController.xib in Resources */,
 				C1AEDE19193EF8E400067348 /* SocialViewController.xib in Resources */,
 				C1A9ECF2193FEEC60034B3C5 /* ContactUsViewController.xib in Resources */,

@@ -64,8 +64,6 @@
     NSString *textViewStr = @"";
     for(int i = 1; i < staffList.count; i++){
         NSArray *brokenStr = [staffList[i] componentsSeparatedByString:@","];
-        
-        NSLog(@"%@", brokenStr);
         if(brokenStr.count == 3){
             NSString *newStr = [@"" stringByAppendingFormat:@"%@: %@ %@"
             ,brokenStr[2], brokenStr[0], brokenStr[1]];
